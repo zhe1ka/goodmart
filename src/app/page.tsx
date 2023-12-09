@@ -6,6 +6,7 @@ import FormRow from '@/components/ui/form/form-row/form-row';
 import Input from '@/components/ui/form/input/input';
 import Select from '@/components/ui/form/select/select';
 import Alert from '@/components/ui/alert/alert';
+import Checkbox from '@/components/ui/form/checkbox/checkbox';
 
 const stateOptions = [
   { title: 'Alaska, USA', value: 1 },
@@ -102,7 +103,7 @@ export default function Home(): React.ReactNode {
             />
           </FormRow>
 
-          <Alert classNames="mt-20">
+          <Alert classNames="mt-25">
             <div className="mb-15">
               Manufacturers and vendors are not always the same entity. For example, Lightolier is the name of a brand
               of light fixtures, and we might consider Lightolier to be the name of the manufacturer in that case. The
@@ -112,7 +113,10 @@ export default function Home(): React.ReactNode {
             </div>
             <div className="space-between">
               <strong>Vendor name is the same as the manufacturer name?</strong>
-              <span>Yes</span>
+              <span>
+                <Checkbox name="confirm" />
+                Yes
+              </span>
               <span />
             </div>
           </Alert>
