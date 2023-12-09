@@ -1,5 +1,6 @@
 import { FormEvent } from 'react';
 import styles from './form-wrapper.module.css';
+import Button from '@/components/ui/button/button';
 
 type FormWrapperProps = {
   children: React.ReactNode;
@@ -22,9 +23,12 @@ export default function FormWrapper ({ children, submitBtnText = 'Submit' }: For
   return (
     <form className={styles.formWrapper} onSubmit={handleSubmit}>
       {children}
-      <button type="submit">
-        {submitBtnText}
-      </button>
+
+      <div className={styles.formWrapperFooter}>
+        <Button type="submit" primary>
+          {submitBtnText}
+        </Button>
+      </div>
     </form>
   )
 };

@@ -4,6 +4,7 @@ import Block from '@/components/ui/block/block';
 import FormWrapper from '@/components/ui/form/form-wrapper/form-wrapper';
 import FormRow from '@/components/ui/form/form-row/form-row';
 import Input from '@/components/ui/form/input/input';
+import Button from '@/components/ui/button/button';
 
 export default function Home() {
   const handleInput = (name: string, value: string): void => {
@@ -36,7 +37,73 @@ export default function Home() {
               onChange={handleInput}
             />
           </FormRow>
+          <FormRow>
+            <strong>* Street</strong>
+            <Input
+              name="testName"
+              onChange={handleInput}
+            />
+          </FormRow>
+          <FormRow>
+            <strong>* City</strong>
+            <Input
+              name="testName"
+              onChange={handleInput}
+            />
+          </FormRow>
+          <FormRow>
+            <strong>* State</strong>
+            <Input
+              name="testName"
+              onChange={handleInput}
+            />
+          </FormRow>
+          <FormRow>
+            <strong>* Zip</strong>
+            <Input
+              name="testName"
+              onChange={handleInput}
+            />
+          </FormRow>
 
+          <FormRow type="main">
+            2. Contact info
+          </FormRow>
+          <FormRow>
+            <strong>* First Name</strong>
+            <Input
+              name="testName"
+              onChange={handleInput}
+            />
+          </FormRow>
+          <FormRow>
+            <strong>* Last Name</strong>
+            <Input
+              name="testName"
+              onChange={handleInput}
+            />
+          </FormRow>
+          <FormRow>
+            <strong>Title</strong>
+            <Input
+              name="testName"
+              onChange={handleInput}
+            />
+          </FormRow>
+          <FormRow>
+            <strong>* Email Address</strong>
+            <Input
+              name="testName"
+              onChange={handleInput}
+            />
+          </FormRow>
+          <FormRow>
+            <strong>* Phone Number</strong>
+            <Input
+              name="testName"
+              onChange={handleInput}
+            />
+          </FormRow>
         </FormWrapper>
       </Block>
     </main>

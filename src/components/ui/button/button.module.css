@@ -1,0 +1,18 @@
+.button {
+    height: 40px;
+    padding: 0 15px;
+    border-radius: var(--radius);
+    border: 1px solid;
+    cursor: pointer;
+    transition: opacity .3s;
+}
+
+.buttonPrimary {
+    background: var(--green);
+    color: #fff;
+    border: 1px solid var(--green);
+}
+
+.buttonPrimary:hover {
+    opacity: .9;
+}
