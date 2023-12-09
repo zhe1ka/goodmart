@@ -1,0 +1,16 @@
+.phoneNumber {
+    font-size: 12px;
+}
+
+.phoneNumberCode,
+.phoneNumberFirstPart {
+    width: 57px;
+}
+
+.phoneNumberSecondPart {
+    width: 70px;
+}
+
+.space {
+    margin-bottom: 10px;
+}

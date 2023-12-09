@@ -7,6 +7,7 @@ import Input from '@/components/ui/form/input/input';
 import Select from '@/components/ui/form/select/select';
 import Alert from '@/components/ui/alert/alert';
 import Checkbox from '@/components/ui/form/checkbox/checkbox';
+import PhoneNumber from '@/components/phone-number/phone-number';
 
 const stateOptions = [
   { title: 'Alaska, USA', value: 1 },
@@ -98,9 +99,8 @@ export default function Home(): React.ReactNode {
           </FormRow>
           <FormRow>
             <strong>* Phone Number</strong>
-            <Input
-              name="phone"
-            />
+
+            <PhoneNumber hasExt />
           </FormRow>
 
           <Alert classNames="mt-25">
@@ -113,10 +113,10 @@ export default function Home(): React.ReactNode {
             </div>
             <div className="space-between">
               <strong>Vendor name is the same as the manufacturer name?</strong>
-              <span>
+              <label>
                 <Checkbox name="confirm" />
                 Yes
-              </span>
+              </label>
               <span />
             </div>
           </Alert>
