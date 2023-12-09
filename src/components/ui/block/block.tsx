@@ -1,11 +1,11 @@
 import styles from './block.module.css';
 
-type LayoutProps = {
+type BlockProps = {
   title: string;
   children: React.ReactNode;
 }
 
-export default function Block ({ title, children }: LayoutProps): React.ReactNode {
+export default function Block ({ title, children }: BlockProps): React.ReactNode {
   return (
     <div className={styles.block}>
       <div className={styles.block__header}>{title}</div>

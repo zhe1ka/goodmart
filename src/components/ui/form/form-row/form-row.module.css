@@ -1,0 +1,8 @@
+.formRow {
+    padding: 10px 0;
+    border-bottom: var(--border);
+
+    .formRow--main {
+        background: #f2f6fd;
+    }
+}
