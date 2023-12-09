@@ -1,13 +1,24 @@
 import styles from './form-row.module.css';
 
-type FormRowProps = {
-  children: React.ReactNode;
-  type?: 'main' | 'default';
+enum Types {
+  default = 'default',
+  main = 'main',
 }
 
-export default function FormRow ({ children, type = 'default' }: FormRowProps): React.ReactNode {
+type FormRowProps = {
+  children: React.ReactNode;
+  type?: keyof typeof Types;
+}
+
+export default function FormRow({ children, type = Types.default }: FormRowProps): React.ReactNode {
+  let classes = styles.formRow;
+
+  if (type === Types.main) {
+    classes += ` ${styles['formRow--main']}`;
+  }
+
   return (
-    <div className={styles.formRow}>
+    <div className={classes}>
       {children}
     </div>
   );

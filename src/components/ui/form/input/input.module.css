@@ -1,0 +1,13 @@
+.input {
+    width: 200px;
+    max-width: 100%;
+    height: 30px;
+    padding: 0 10px;
+    border: var(--borderForm);
+    border-radius: var(--radius);
+    flex: none;
+}
+
+.input:focus {
+    outline: none;
+}

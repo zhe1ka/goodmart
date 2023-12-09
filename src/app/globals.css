@@ -1,9 +1,13 @@
 :root {
-  --color: #2a313b;
+  --color: #4d4d4d;
   --blue: #3d83f4;
+
   --radius: 5px;
   --fontSize: 14px;
+
   --border: 1px solid #dedfe1;
+  --borderForm: 1px solid #cbd2db;
+
   --boxShadow: 0 0 15px 3px rgba(0, 0, 0, 0.1);
 }
 

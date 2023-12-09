@@ -10,7 +10,13 @@ export default function FormWrapper ({ children, submitBtnText = 'Submit' }: For
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    console.log('form submitted!');
+    const formData = new FormData(event.currentTarget)
+
+    // console.log('form submitted!', formData.entries());
+
+    for (const [key, value] of formData) {
+      console.log(key, value);
+    }
   };
 
   return (
