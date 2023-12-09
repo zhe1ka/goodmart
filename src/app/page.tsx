@@ -1,12 +1,14 @@
 "use client"
+import { JSX } from 'react';
+
 import styles from './page.module.css';
 import Block from '@/components/ui/block/block';
 import FormWrapper from '@/components/ui/form/form-wrapper/form-wrapper';
 import FormRow from '@/components/ui/form/form-row/form-row';
 import Input from '@/components/ui/form/input/input';
-import Button from '@/components/ui/button/button';
+import Select from '@/components/ui/form/select/select';
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const handleInput = (name: string, value: string): void => {
     console.log('===', name, value);
   };
@@ -53,10 +55,7 @@ export default function Home() {
           </FormRow>
           <FormRow>
             <strong>* State</strong>
-            <Input
-              name="testName"
-              onChange={handleInput}
-            />
+            <Select />
           </FormRow>
           <FormRow>
             <strong>* Zip</strong>

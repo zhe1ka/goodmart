@@ -1,4 +1,4 @@
-import { FormEvent } from 'react';
+import { FormEvent, JSX } from 'react';
 import styles from './form-wrapper.module.css';
 import Button from '@/components/ui/button/button';
 
@@ -7,7 +7,7 @@ type FormWrapperProps = {
   submitBtnText?: string;
 }
 
-export default function FormWrapper ({ children, submitBtnText = 'Submit' }: FormWrapperProps): React.ReactNode {
+export default function FormWrapper ({ children, submitBtnText = 'Submit' }: FormWrapperProps): JSX.Element {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

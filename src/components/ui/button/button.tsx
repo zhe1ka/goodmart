@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import styles from './button.module.css';
 
 type ButtonProps = {
@@ -6,7 +7,7 @@ type ButtonProps = {
   primary: boolean;
 }
 
-export default function Button({ children, type = 'button', primary = false }: ButtonProps) {
+export default function Button({ children, type = 'button', primary = false }: ButtonProps): JSX.Element {
   let classes = styles.button;
 
   if (primary) {

@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, JSX } from 'react';
 import styles from './input.module.css';
 
 type InputProps = {
@@ -8,7 +8,7 @@ type InputProps = {
   value?: string;
 }
 
-export default function Input({ name, type = 'text', onChange, value = '' }: InputProps): React.ReactNode {
+export default function Input({ name, type = 'text', onChange, value = '' }: InputProps): JSX.Element {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange(name, event.currentTarget.value);
   };

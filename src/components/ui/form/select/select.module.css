@@ -1,0 +1,38 @@
+.wrapperCustomSelect {
+    width: 200px;
+    position: relative;
+}
+
+.customSelect {
+    appearance: none;
+    /*  safari  */
+    -webkit-appearance: none;
+    /*  other styles for aesthetics */
+    width: 100%;
+    font-size: var(--fontSize);
+    padding: 10px 30px 10px 10px;
+    background-color: #fff;
+    border: var(--border);
+    border-radius: var(--radius);
+    color: var(--color);
+    cursor: pointer;
+}
+
+.customSelect:focus {
+    outline: none;
+}
+
+.wrapperCustomSelect::after {
+    --size: 0.3rem;
+    content: "";
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+}
+
+.wrapperCustomSelect::after {
+    border-left: var(--size) solid transparent;
+    border-right: var(--size) solid transparent;
+    border-top: var(--size) solid #656a73;
+    top: 50%;
+}
