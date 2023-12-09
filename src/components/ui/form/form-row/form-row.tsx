@@ -7,7 +7,7 @@ enum Types {
 }
 
 type FormRowProps = {
-  children: React.ReactNode;
+  children: JSX.Element;
   type?: keyof typeof Types;
 }
 

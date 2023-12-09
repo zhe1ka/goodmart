@@ -8,23 +8,28 @@ import FormRow from '@/components/ui/form/form-row/form-row';
 import Input from '@/components/ui/form/input/input';
 import Select from '@/components/ui/form/select/select';
 
+const stateOptions = [
+  { title: 'Alaska, USA', value: 1 },
+  { title: 'Alaska 22, USA', value: 2 },
+  { title: 'Alaska 33, USA', value: 3 },
+]
+
 export default function Home(): JSX.Element {
-  const handleInput = (name: string, value: string): void => {
-    console.log('===', name, value);
+  const handleForm = (data) => {
+    console.log('== data ==', data);
   };
 
   return (
     <main className={styles.main}>
       <Block title="Add New Manifacturer">
-        <FormWrapper >
+        <FormWrapper onSubmit={handleForm}>
           <FormRow type="main">
             1. Manifacturer information
           </FormRow>
           <FormRow>
             <strong>* Manifacturer Company Name</strong>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="companyName"
             />
           </FormRow>
           <FormRow>
@@ -35,33 +40,32 @@ export default function Home(): JSX.Element {
               </div>
             </div>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="symbol"
             />
           </FormRow>
           <FormRow>
             <strong>* Street</strong>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="street"
             />
           </FormRow>
           <FormRow>
             <strong>* City</strong>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="city"
             />
           </FormRow>
           <FormRow>
             <strong>* State</strong>
-            <Select />
+            <Select
+              name="state"
+              options={stateOptions}
+            />
           </FormRow>
           <FormRow>
             <strong>* Zip</strong>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="zip"
             />
           </FormRow>
 
@@ -71,36 +75,31 @@ export default function Home(): JSX.Element {
           <FormRow>
             <strong>* First Name</strong>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="firstName"
             />
           </FormRow>
           <FormRow>
             <strong>* Last Name</strong>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="lastName"
             />
           </FormRow>
           <FormRow>
             <strong>Title</strong>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="title"
             />
           </FormRow>
           <FormRow>
             <strong>* Email Address</strong>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="email"
             />
           </FormRow>
           <FormRow>
             <strong>* Phone Number</strong>
             <Input
-              name="testName"
-              onChange={handleInput}
+              name="phone"
             />
           </FormRow>
         </FormWrapper>

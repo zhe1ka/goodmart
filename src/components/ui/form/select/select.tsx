@@ -1,17 +1,23 @@
 import { JSX } from 'react';
 import styles from './select.module.css';
 
-export default function Select(): JSX.Element {
+type SelectProps = {
+  name: string;
+  options: {title: string, value: string | number}[];
+}
+
+export default function Select({ name, options }: SelectProps): JSX.Element {
   return (
     <div className={styles.wrapperCustomSelect}>
-      <select className={styles.customSelect}>
-        <option value="">Open this select menu</option>
-        <option value="">GitHub</option>
-        <option value="">Instagram</option>
-        <option value="">Facebook</option>
-        <option value="">LinkedIn</option>
-        <option value="">Twitter</option>
-        <option value="">Reddit</option>
+      <select
+        name={name}
+        className={styles.customSelect}
+      >
+        {
+          options.map(({ title, value }) => (
+            <option key={value} value={value}>{title}</option>
+          ))
+        }
       </select>
     </div>
   );

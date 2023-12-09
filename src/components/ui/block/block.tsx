@@ -3,7 +3,7 @@ import styles from './block.module.css';
 
 type BlockProps = {
   title: string;
-  children: React.ReactNode;
+  children: JSX.Element;
 }
 
 export default function Block ({ title, children }: BlockProps): JSX.Element {

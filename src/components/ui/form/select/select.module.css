@@ -9,7 +9,7 @@
     -webkit-appearance: none;
     /*  other styles for aesthetics */
     width: 100%;
-    font-size: var(--fontSize);
+    font-size: 12px;
     padding: 10px 30px 10px 10px;
     background-color: #fff;
     border: var(--border);
