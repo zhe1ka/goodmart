@@ -1,3 +1,5 @@
+import styles from './block.module.css';
+
 type LayoutProps = {
   title: string;
   children: React.ReactNode;
@@ -5,9 +7,9 @@ type LayoutProps = {
 
 export default function Block ({ title, children }: LayoutProps): React.ReactNode {
   return (
-    <div>
-      <div>{title}</div>
-      <div>
+    <div className={styles.block}>
+      <div className={styles.block__header}>{title}</div>
+      <div className={styles.block__content}>
         {children}
       </div>
     </div>

@@ -1,0 +1,25 @@
+.block {
+    max-width: 1200px;
+    margin: 0 auto 20px;
+    border-radius: 5px;
+    border: 1px solid #dedfe1;
+    box-shadow: 0px 0px 15px 3px rgba(0,0,0,0.1);
+
+    .block__header {
+        padding: 15px 20px;
+        background: #f8f8f9;
+        /*background: #f2f6fd;*/
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        border-bottom: 1px solid #dedfe1;
+        font-size: 14px;
+        font-weight: bold;
+        color: #3d83f4;
+    }
+
+    .block__content {
+        padding: 15px 20px;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+}
