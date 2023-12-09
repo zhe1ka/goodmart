@@ -1,4 +1,3 @@
-import { JSX } from 'react';
 import styles from './select.module.css';
 
 type SelectProps = {
@@ -6,7 +5,7 @@ type SelectProps = {
   options: {title: string, value: string | number}[];
 }
 
-export default function Select({ name, options }: SelectProps): JSX.Element {
+export default function Select({ name, options }: SelectProps): React.ReactNode {
   return (
     <div className={styles.wrapperCustomSelect}>
       <select

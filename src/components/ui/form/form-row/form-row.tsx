@@ -1,4 +1,3 @@
-import { JSX } from 'react';
 import styles from './form-row.module.css';
 
 enum Types {
@@ -7,11 +6,11 @@ enum Types {
 }
 
 type FormRowProps = {
-  children: JSX.Element;
+  children: React.ReactNode;
   type?: keyof typeof Types;
 }
 
-export default function FormRow({ children, type = Types.default }: FormRowProps): JSX.Element {
+export default function FormRow({ children, type = Types.default }: FormRowProps): React.ReactNode {
   let classes = styles.formRow;
 
   if (type === Types.main) {

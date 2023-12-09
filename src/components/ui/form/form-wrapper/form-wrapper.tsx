@@ -5,11 +5,11 @@ import Button from '@/components/ui/button/button';
 
 type FormWrapperProps = {
   onSubmit: (data: any) => void;
-  children: JSX.Element;
+  children: React.ReactNode;
   submitBtnText?: string;
 }
 
-export default function FormWrapper ({ children, onSubmit, submitBtnText = 'Submit' }: FormWrapperProps): JSX.Element {
+export default function FormWrapper ({ children, onSubmit, submitBtnText = 'Submit' }: FormWrapperProps): React.ReactNode {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 

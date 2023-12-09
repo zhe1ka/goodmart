@@ -1,4 +1,3 @@
-import { JSX } from 'react';
 import styles from './input.module.css';
 
 type InputProps = {
@@ -7,7 +6,7 @@ type InputProps = {
   value?: string;
 }
 
-export default function Input({ name, type = 'text', value = '' }: InputProps): JSX.Element {
+export default function Input({ name, type = 'text', value = '' }: InputProps): React.ReactNode {
   return (
     <input
       type={type}

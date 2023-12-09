@@ -1,0 +1,8 @@
+.alert {
+    padding: 15px 10px;
+    border-radius: var(--radius);
+    background: var(--orangeLight);
+    color: var(--orange);
+    border: var(--borderOrange);
+    font-size: 13px;
+}

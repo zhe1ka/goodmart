@@ -1,12 +1,11 @@
 "use client"
-import { JSX } from 'react';
-
 import styles from './page.module.css';
 import Block from '@/components/ui/block/block';
 import FormWrapper from '@/components/ui/form/form-wrapper/form-wrapper';
 import FormRow from '@/components/ui/form/form-row/form-row';
 import Input from '@/components/ui/form/input/input';
 import Select from '@/components/ui/form/select/select';
+import Alert from '@/components/ui/alert/alert';
 
 const stateOptions = [
   { title: 'Alaska, USA', value: 1 },
@@ -14,7 +13,7 @@ const stateOptions = [
   { title: 'Alaska 33, USA', value: 3 },
 ]
 
-export default function Home(): JSX.Element {
+export default function Home(): React.ReactNode {
   const handleForm = (data) => {
     console.log('== data ==', data);
   };
@@ -102,6 +101,21 @@ export default function Home(): JSX.Element {
               name="phone"
             />
           </FormRow>
+
+          <Alert classNames="mt-20">
+            <div className="mb-15">
+              Manufacturers and vendors are not always the same entity. For example, Lightolier is the name of a brand
+              of light fixtures, and we might consider Lightolier to be the name of the manufacturer in that case. The
+              vendor associated with Lightolier would be Signify, which is the company that owns the Lightolier brand.
+              In other cases, the names of the vendor and manufacturer are the same. If the name of the manufacturer is
+              the same as the name of the vendor, then select this box:
+            </div>
+            <div className="space-between">
+              <strong>Vendor name is the same as the manufacturer name?</strong>
+              <span>Yes</span>
+              <span />
+            </div>
+          </Alert>
         </FormWrapper>
       </Block>
     </main>

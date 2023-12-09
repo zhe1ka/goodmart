@@ -2,11 +2,14 @@
   --color: #4d4d4d;
   --blue: #3d83f4;
   --green: #00ad69;
+  --orangeLight: #feeccd;
+  --orange: #ba974e;
 
   --radius: 5px;
   --fontSize: 14px;
 
   --border: 1px solid #dedfe1;
+  --borderOrange: 1px solid #fce4b8;
   --borderForm: 1px solid #cbd2db;
 
   --boxShadow: 0 0 15px 3px rgba(0, 0, 0, 0.1);
@@ -24,5 +27,18 @@ body {
   overflow-x: hidden;
   color: var(--color);
   font-size: var(--fontSize);
+  line-height: 1.3;
 }
 
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-15 {
+  margin-bottom: 15px;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
+}
