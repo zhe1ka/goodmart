@@ -10,9 +10,10 @@ import Checkbox from '@/components/ui/form/checkbox/checkbox';
 import PhoneNumber from '@/components/phone-number/phone-number';
 
 const stateOptions = [
-  { title: 'Alaska, USA', value: 1 },
-  { title: 'Alaska 22, USA', value: 2 },
-  { title: 'Alaska 33, USA', value: 3 },
+  { title: '', value: '' },
+  { title: 'Alaska, USA', value: '1' },
+  { title: 'Alaska 22, USA', value: '2' },
+  { title: 'Alaska 33, USA', value: '3' },
 ]
 
 export default function Home(): React.ReactNode {
@@ -46,7 +47,7 @@ export default function Home(): React.ReactNode {
               name="symbol"
               maxLength={3}
               requiredErrorMessage="Symbol cannot be empty"
-              validationExpression={/[A-Z]+$/}
+              validationExpression={/[A-Z]+/}
               validationErrorMessage="Only letters are accepted in Symbol"
             />
           </FormRow>
@@ -54,12 +55,16 @@ export default function Home(): React.ReactNode {
             <strong>* Street</strong>
             <Input
               name="street"
+              maxLength={80}
+              requiredErrorMessage="Street cannot be empty"
             />
           </FormRow>
           <FormRow>
             <strong>* City</strong>
             <Input
               name="city"
+              maxLength={80}
+              requiredErrorMessage="City cannot be empty"
             />
           </FormRow>
           <FormRow>
@@ -67,12 +72,16 @@ export default function Home(): React.ReactNode {
             <Select
               name="state"
               options={stateOptions}
+              defaultValue=""
+              errorMessage="Must select a State"
             />
           </FormRow>
           <FormRow>
             <strong>* Zip</strong>
             <Input
               name="zip"
+              maxLength={10}
+              requiredErrorMessage="Zip cannot be empty"
             />
           </FormRow>
 
@@ -83,24 +92,32 @@ export default function Home(): React.ReactNode {
             <strong>* First Name</strong>
             <Input
               name="firstName"
+              maxLength={50}
+              requiredErrorMessage="First Name cannot be empty"
             />
           </FormRow>
           <FormRow>
             <strong>* Last Name</strong>
             <Input
               name="lastName"
+              maxLength={50}
+              requiredErrorMessage="Last Name cannot be empty"
             />
           </FormRow>
           <FormRow>
             <strong>Title</strong>
             <Input
               name="title"
+              maxLength={50}
             />
           </FormRow>
           <FormRow>
             <strong>* Email Address</strong>
             <Input
               name="email"
+              requiredErrorMessage="Email cannot be empty"
+              validationExpression={/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/}
+              validationErrorMessage="Must follow email@host.domain"
             />
           </FormRow>
           <FormRow>

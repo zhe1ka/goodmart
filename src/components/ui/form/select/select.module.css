@@ -34,5 +34,5 @@
     border-left: var(--size) solid transparent;
     border-right: var(--size) solid transparent;
     border-top: var(--size) solid #656a73;
-    top: 50%;
+    top: 17px;
 }
