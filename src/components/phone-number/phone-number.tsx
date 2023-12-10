@@ -1,5 +1,6 @@
 import Input from '@/components/ui/form/input/input';
-import styles from './phone-number.module.css'
+import { PhoneInputs } from '@/app/page';
+import styles from './phone-number.module.css';
 
 const regExp3Digits = /^\d{3}$/
 const regExp4Digits = /^\d{4}$/
@@ -16,7 +17,7 @@ export default function PhoneNumber({ hasExt = false, checkValidation = false }:
         <span className={styles.symbol}>(</span>
         <Input
           classNames={styles.phoneNumberCode}
-          name="phone-number-code"
+          name={PhoneInputs.phoneNumberCode}
           maxLength={3}
           requiredErrorMessage="Area code cannot be empty"
           validationErrorMessage="Area code must be 3 numeric digits"
@@ -26,7 +27,7 @@ export default function PhoneNumber({ hasExt = false, checkValidation = false }:
         <span className={styles.symbol}>)</span>
         <Input
           classNames={styles.phoneNumberFirstPart}
-          name="phone-number-first-part"
+          name={PhoneInputs.phoneNumberFirstPart}
           maxLength={3}
           requiredErrorMessage="Cannot be empty"
           validationErrorMessage="Must be 3 numeric digits"
@@ -36,7 +37,7 @@ export default function PhoneNumber({ hasExt = false, checkValidation = false }:
         <span className={styles.symbol}>-</span>
         <Input
           classNames={styles.phoneNumberSecondPart}
-          name="phone-number-second-part"
+          name={PhoneInputs.phoneNumberSecondPart}
           maxLength={4}
           requiredErrorMessage="Cannot be empty"
           validationErrorMessage="Must be 4 numeric digits"
@@ -48,7 +49,7 @@ export default function PhoneNumber({ hasExt = false, checkValidation = false }:
         hasExt
           ? (
             <div>
-              ext: <Input classNames={styles.phoneNumberSecondPart} name="phone-number-ext" />
+              ext: <Input classNames={styles.phoneNumberSecondPart} name={PhoneInputs.phoneNumberExt} />
             </div>
           )
           : null

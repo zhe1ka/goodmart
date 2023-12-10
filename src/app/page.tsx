@@ -33,6 +33,13 @@ enum ValidateEmailInputs {
   email = 'email',
 }
 
+export enum PhoneInputs {
+  phoneNumberCode = 'phoneNumberCode',
+  phoneNumberFirstPart = 'phoneNumberFirstPart',
+  phoneNumberSecondPart = 'phoneNumberSecondPart',
+  phoneNumberExt = 'phoneNumberExt',
+}
+
 type FormDataType = {
   companyName: string;
   symbol: string;
@@ -45,7 +52,7 @@ type FormDataType = {
   title?: string;
   email: string;
   phoneNumber: string;
-  confirm: boolean;
+  confirm: string;
 }
 
 const symbolRegExp = /[A-Z]+/;
@@ -67,7 +74,7 @@ export default function Home(): React.ReactNode {
       lastName: '',
       email: '',
       phoneNumber: '',
-      confirm: false,
+      confirm: 'off',
     };
 
     for (const [key, value] of formData) {
@@ -89,15 +96,19 @@ export default function Home(): React.ReactNode {
         }
       }
 
-      data[key] = value;
-
-      console.log(key, value);
+      if (key in PhoneInputs) {
+        if (key === PhoneInputs.phoneNumberExt) {
+          data.phoneNumber = value + data.phoneNumber;
+        } else {
+          data.phoneNumber += value
+        }
+      } else {
+        data[key] = value;
+      }
     }
 
     // send "data"
-
     console.log('=== data ===', data);
-
   };
 
   return (
