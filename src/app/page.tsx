@@ -33,20 +33,48 @@ enum ValidateEmailInputs {
   email = 'email',
 }
 
+type FormDataType = {
+  companyName: string;
+  symbol: string;
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
+  firstName: string;
+  lastName: string;
+  title?: string;
+  email: string;
+  phoneNumber: string;
+  confirm: boolean;
+}
+
 const symbolRegExp = /[A-Z]+/;
 const emailRegExp = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
 
 export default function Home(): React.ReactNode {
   const [checkValidation, setCheckValidation] = useState(false);
-  const handleForm = (formData: any) => {
+  const handleForm = (formData) => {
     setCheckValidation(true);
+
+    const data: FormDataType = {
+      companyName: '',
+      symbol: '',
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      confirm: false,
+    };
 
     for (const [key, value] of formData) {
       if (key in ValidatePlainInputs) {
         if (value.length === 0) {
           return;
         }
-
       }
 
       if (key in ValidateEmailInputs) {
@@ -60,8 +88,15 @@ export default function Home(): React.ReactNode {
           return;
         }
       }
+
+      data[key] = value;
+
       console.log(key, value);
     }
+
+    // send "data"
+
+    console.log('=== data ===', data);
 
   };
 
@@ -176,7 +211,7 @@ export default function Home(): React.ReactNode {
           <FormRow>
             <strong>* Phone Number</strong>
 
-            <PhoneNumber hasExt />
+            <PhoneNumber hasExt checkValidation={checkValidation} />
           </FormRow>
 
           <Alert classNames="mt-25">

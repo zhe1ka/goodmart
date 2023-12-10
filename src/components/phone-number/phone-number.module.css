@@ -14,3 +14,9 @@
 .space {
     margin-bottom: 10px;
 }
+
+.symbol {
+    margin: 11px 5px 0;
+    display: inline-block;
+    vertical-align: top;
+}

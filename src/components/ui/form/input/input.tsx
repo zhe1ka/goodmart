@@ -29,7 +29,7 @@ export default function Input({
 }: InputProps): React.ReactNode {
   const [value, setValue] = useState(defaultValue);
   const [isTouched, setTouched] = useState(false);
-  let classes = styles.input;
+  let classes = styles.inputWrapper;
 
   useEffect(() => {
     setTouched(checkValidation);
@@ -48,11 +48,11 @@ export default function Input({
   };
 
   return (
-    <div className={styles.inputWrapper}>
+    <div className={classes}>
       <input
         type={type}
         name={name}
-        className={classes}
+        className={styles.input}
         onChange={handleChange}
         value={value}
         maxLength={maxLength || undefined}

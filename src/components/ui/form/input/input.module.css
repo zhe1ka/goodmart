@@ -1,6 +1,7 @@
 .inputWrapper {
     display: inline-block;
     max-width: 215px;
+    vertical-align: top;
 }
 
 .input {
