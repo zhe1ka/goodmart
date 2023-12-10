@@ -14,13 +14,6 @@ export default function FormWrapper ({ children, onSubmit, submitBtnText = 'Subm
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-
-    // console.log('form submitted!', formData.entries());
-
-    for (const [key, value] of formData) {
-      console.log(key, value);
-    }
-
     onSubmit(formData);
   };
 
@@ -34,5 +27,5 @@ export default function FormWrapper ({ children, onSubmit, submitBtnText = 'Subm
         </Button>
       </div>
     </form>
-  )
+  );
 };
