@@ -1,9 +1,9 @@
 import Input from '@/components/ui/form/input/input';
 import { PhoneInputs } from '@/app/page';
-import styles from './phone-number.module.css';
 
-const regExp3Digits = /^\d{3}$/
-const regExp4Digits = /^\d{4}$/
+import { regExp3Digits, regExp4Digits } from '@/lib/constants';
+
+import styles from './phone-number.module.css';
 
 type PhoneNumberProps = {
   hasExt?: boolean;
@@ -11,7 +11,6 @@ type PhoneNumberProps = {
 }
 
 export default function PhoneNumber({ hasExt = false, checkValidation = false }: PhoneNumberProps) {
-  console.log('== checkValidation ==', checkValidation);
   return (
     <div className={styles.phoneNumber}>
       <div className={styles.space}>

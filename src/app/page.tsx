@@ -1,5 +1,6 @@
 "use client"
-import styles from './page.module.css';
+import { useState } from 'react';
+
 import Block from '@/components/ui/block/block';
 import FormWrapper from '@/components/ui/form/form-wrapper/form-wrapper';
 import FormRow from '@/components/ui/form/form-row/form-row';
@@ -8,7 +9,10 @@ import Select from '@/components/ui/form/select/select';
 import Alert from '@/components/ui/alert/alert';
 import Checkbox from '@/components/ui/form/checkbox/checkbox';
 import PhoneNumber from '@/components/phone-number/phone-number';
-import { useState } from 'react';
+
+import { emailRegExp, regExp3Digits, regExp4Digits, symbolRegExp } from '@/lib/constants';
+
+import styles from './page.module.css';
 
 const stateOptions = [
   { title: '', value: '' },
@@ -55,14 +59,9 @@ type FormDataType = {
   confirm: string;
 }
 
-const symbolRegExp = /[A-Z]+/;
-const emailRegExp = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
-const regExp3Digits = /^\d{3}$/
-const regExp4Digits = /^\d{4}$/
-
 export default function Home(): React.ReactNode {
   const [checkValidation, setCheckValidation] = useState(false);
-  const handleForm = (formData) => {
+  const handleForm = (formData: FormData) => {
     setCheckValidation(true);
 
     const data: FormDataType = {
