@@ -31,6 +31,8 @@ export default function Home(): React.ReactNode {
             <strong>* Manifacturer Company Name</strong>
             <Input
               name="companyName"
+              maxLength={100}
+              requiredErrorMessage="Company Name cannot be empty"
             />
           </FormRow>
           <FormRow>
@@ -42,6 +44,10 @@ export default function Home(): React.ReactNode {
             </div>
             <Input
               name="symbol"
+              maxLength={3}
+              requiredErrorMessage="Symbol cannot be empty"
+              validationExpression={/[A-Z]+$/}
+              validationErrorMessage="Only letters are accepted in Symbol"
             />
           </FormRow>
           <FormRow>
