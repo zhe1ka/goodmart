@@ -8,6 +8,7 @@ import Select from '@/components/ui/form/select/select';
 import Alert from '@/components/ui/alert/alert';
 import Checkbox from '@/components/ui/form/checkbox/checkbox';
 import PhoneNumber from '@/components/phone-number/phone-number';
+import { useState } from 'react';
 
 const stateOptions = [
   { title: '', value: '' },
@@ -17,8 +18,10 @@ const stateOptions = [
 ]
 
 export default function Home(): React.ReactNode {
+  const [checkValidation, setCheckValidation] = useState(false);
   const handleForm = (data) => {
     console.log('== data ==', data);
+    setCheckValidation(true);
   };
 
   return (
@@ -33,6 +36,7 @@ export default function Home(): React.ReactNode {
             <Input
               name="companyName"
               maxLength={100}
+              checkValidation={checkValidation}
               requiredErrorMessage="Company Name cannot be empty"
             />
           </FormRow>
@@ -46,6 +50,7 @@ export default function Home(): React.ReactNode {
             <Input
               name="symbol"
               maxLength={3}
+              checkValidation={checkValidation}
               requiredErrorMessage="Symbol cannot be empty"
               validationExpression={/[A-Z]+/}
               validationErrorMessage="Only letters are accepted in Symbol"
@@ -56,6 +61,7 @@ export default function Home(): React.ReactNode {
             <Input
               name="street"
               maxLength={80}
+              checkValidation={checkValidation}
               requiredErrorMessage="Street cannot be empty"
             />
           </FormRow>
@@ -64,6 +70,7 @@ export default function Home(): React.ReactNode {
             <Input
               name="city"
               maxLength={80}
+              checkValidation={checkValidation}
               requiredErrorMessage="City cannot be empty"
             />
           </FormRow>
@@ -73,6 +80,7 @@ export default function Home(): React.ReactNode {
               name="state"
               options={stateOptions}
               defaultValue=""
+              checkValidation={checkValidation}
               errorMessage="Must select a State"
             />
           </FormRow>
@@ -81,6 +89,7 @@ export default function Home(): React.ReactNode {
             <Input
               name="zip"
               maxLength={10}
+              checkValidation={checkValidation}
               requiredErrorMessage="Zip cannot be empty"
             />
           </FormRow>
@@ -93,6 +102,7 @@ export default function Home(): React.ReactNode {
             <Input
               name="firstName"
               maxLength={50}
+              checkValidation={checkValidation}
               requiredErrorMessage="First Name cannot be empty"
             />
           </FormRow>
@@ -101,6 +111,7 @@ export default function Home(): React.ReactNode {
             <Input
               name="lastName"
               maxLength={50}
+              checkValidation={checkValidation}
               requiredErrorMessage="Last Name cannot be empty"
             />
           </FormRow>
@@ -115,6 +126,7 @@ export default function Home(): React.ReactNode {
             <strong>* Email Address</strong>
             <Input
               name="email"
+              checkValidation={checkValidation}
               requiredErrorMessage="Email cannot be empty"
               validationExpression={/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/}
               validationErrorMessage="Must follow email@host.domain"

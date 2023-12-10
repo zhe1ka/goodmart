@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import RequiredFieldValidator from '@/components/ui/form/required-field-validator/required-field-validator';
 import styles from './input.module.css';
@@ -10,17 +10,30 @@ type InputProps = {
   type?: string;
   value?: string;
   maxLength?: number;
+  checkValidation?: boolean;
   requiredErrorMessage?: string;
   validationExpression?: RegExp;
   validationErrorMessage?: string;
 }
 
 export default function Input({
-  classNames, name, type = 'text', value: defaultValue = '', maxLength = 0, requiredErrorMessage, validationExpression, validationErrorMessage,
+  classNames,
+  name,
+  type = 'text',
+  value: defaultValue = '',
+  maxLength = 0,
+  checkValidation = false,
+  requiredErrorMessage,
+  validationExpression,
+  validationErrorMessage,
 }: InputProps): React.ReactNode {
   const [value, setValue] = useState(defaultValue);
   const [isTouched, setTouched] = useState(false);
   let classes = styles.input;
+
+  useEffect(() => {
+    setTouched(checkValidation);
+  }, [checkValidation]);
 
   if (classNames) {
     classes += ` ${classNames}`;

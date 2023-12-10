@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 
 import RequiredFieldValidator from '@/components/ui/form/required-field-validator/required-field-validator';
 import styles from './select.module.css';
@@ -7,12 +7,17 @@ type SelectProps = {
   name: string;
   options: {title: string, value: string | number}[];
   defaultValue: string;
+  checkValidation?: boolean;
   errorMessage?: string;
 }
 
-export default function Select({ name, options, defaultValue, errorMessage = '' }: SelectProps): React.ReactNode {
+export default function Select({ name, options, defaultValue, checkValidation = false, errorMessage = '' }: SelectProps): React.ReactNode {
   const [isTouched, setTouched] = useState(false);
   const [value, setValue] = useState(defaultValue);
+
+  useEffect(() => {
+    setTouched(checkValidation);
+  }, [checkValidation]);
 
   const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     if (!isTouched) {
