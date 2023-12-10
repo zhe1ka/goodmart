@@ -57,6 +57,8 @@ type FormDataType = {
 
 const symbolRegExp = /[A-Z]+/;
 const emailRegExp = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
+const regExp3Digits = /^\d{3}$/
+const regExp4Digits = /^\d{4}$/
 
 export default function Home(): React.ReactNode {
   const [checkValidation, setCheckValidation] = useState(false);
@@ -100,6 +102,18 @@ export default function Home(): React.ReactNode {
         if (key === PhoneInputs.phoneNumberExt) {
           data.phoneNumber = value + data.phoneNumber;
         } else {
+          if (key === PhoneInputs.phoneNumberCode || key === PhoneInputs.phoneNumberFirstPart) {
+            if (!regExp3Digits.test(value)) {
+              return;
+            }
+          }
+
+          if (key === PhoneInputs.phoneNumberExt) {
+            if (!regExp4Digits.test(value)) {
+              return;
+            }
+          }
+
           data.phoneNumber += value
         }
       } else {

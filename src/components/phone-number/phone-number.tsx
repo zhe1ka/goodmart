@@ -11,6 +11,7 @@ type PhoneNumberProps = {
 }
 
 export default function PhoneNumber({ hasExt = false, checkValidation = false }: PhoneNumberProps) {
+  console.log('== checkValidation ==', checkValidation);
   return (
     <div className={styles.phoneNumber}>
       <div className={styles.space}>
@@ -49,7 +50,8 @@ export default function PhoneNumber({ hasExt = false, checkValidation = false }:
         hasExt
           ? (
             <div>
-              ext: <Input classNames={styles.phoneNumberSecondPart} name={PhoneInputs.phoneNumberExt} />
+              <span className={styles.symbol}>ext:</span>
+              <Input classNames={styles.phoneNumberSecondPart} name={PhoneInputs.phoneNumberExt} />
             </div>
           )
           : null

@@ -40,10 +40,6 @@ export default function Input({
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (!isTouched) {
-      setTouched(true);
-    }
-
     setValue(event.currentTarget.value);
   };
 
@@ -53,10 +49,10 @@ export default function Input({
         type={type}
         name={name}
         className={styles.input}
+        onBlur={() => setTouched(true)}
         onChange={handleChange}
         value={value}
         maxLength={maxLength || undefined}
-        data-istouched={isTouched}
       />
       {
         requiredErrorMessage && isTouched
