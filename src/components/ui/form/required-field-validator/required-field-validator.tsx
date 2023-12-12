@@ -6,7 +6,7 @@ type RequiredFieldValidatorProps = {
 }
 
 export default function RequiredFieldValidator({ value, errorMessage }: RequiredFieldValidatorProps): React.ReactNode {
-  if (value.length !== 0) {
+  if (value.trim().length !== 0) {
     return null;
   }
 

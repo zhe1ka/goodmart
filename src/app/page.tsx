@@ -35,6 +35,7 @@ enum ValidatePlainInputs {
 
 enum ValidateEmailInputs {
   email = 'email',
+  specialEmail = 'specialEmail',
 }
 
 export enum PhoneInputs {
@@ -61,6 +62,7 @@ type FormDataType = {
 
 export default function Home(): React.ReactNode {
   const [checkValidation, setCheckValidation] = useState(false);
+  const [isVisibleSpecialEmail, setVisibleSpecialEmail] = useState(false);
   const handleForm = (formData: FormData) => {
     setCheckValidation(true);
 
@@ -226,6 +228,7 @@ export default function Home(): React.ReactNode {
             <strong>* Email Address</strong>
             <Input
               name={ValidateEmailInputs.email}
+              maxLength={80}
               checkValidation={checkValidation}
               requiredErrorMessage="Email cannot be empty"
               validationExpression={emailRegExp}
@@ -239,13 +242,13 @@ export default function Home(): React.ReactNode {
           </FormRow>
 
           <Alert classNames="mt-25">
-            <div className="mb-15">
+            <p className="mb-15">
               Manufacturers and vendors are not always the same entity. For example, Lightolier is the name of a brand
               of light fixtures, and we might consider Lightolier to be the name of the manufacturer in that case. The
               vendor associated with Lightolier would be Signify, which is the company that owns the Lightolier brand.
               In other cases, the names of the vendor and manufacturer are the same. If the name of the manufacturer is
               the same as the name of the vendor, then select this box:
-            </div>
+            </p>
             <div className="space-between">
               <strong>Vendor name is the same as the manufacturer name?</strong>
               <label>
@@ -254,6 +257,23 @@ export default function Home(): React.ReactNode {
               </label>
               <span />
             </div>
+            {
+              isVisibleSpecialEmail
+                ? <>
+                  <p className="mt-25 mb-15">
+                    If you email purchase orders for this vendor to a rep agency instead of to the vendor company directly,
+                    then enter the email address you would send POs to here:
+                  </p>
+                  <Input
+                    name={ValidateEmailInputs.specialEmail}
+                    maxLength={80}
+                    checkValidation={checkValidation}
+                    validationExpression={emailRegExp}
+                    validationErrorMessage="Special Email is not valid"
+                  />
+                </>
+                : null
+            }
           </Alert>
         </FormWrapper>
       </Block>
