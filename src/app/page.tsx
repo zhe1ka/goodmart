@@ -195,7 +195,6 @@ export default function Home(): React.ReactNode {
               requiredErrorMessage="Zip cannot be empty"
             />
           </FormRow>
-
           <FormRow type="main">
             2. Contact info
           </FormRow>
@@ -237,10 +236,11 @@ export default function Home(): React.ReactNode {
           </FormRow>
           <FormRow>
             <strong>* Phone Number</strong>
-
-            <PhoneNumber hasExt checkValidation={checkValidation} />
+            <PhoneNumber
+              hasExt
+              checkValidation={checkValidation}
+            />
           </FormRow>
-
           <Alert classNames="mt-25">
             <p className="mb-15">
               Manufacturers and vendors are not always the same entity. For example, Lightolier is the name of a brand
@@ -278,5 +278,5 @@ export default function Home(): React.ReactNode {
         </FormWrapper>
       </Block>
     </main>
-  )
+  );
 };

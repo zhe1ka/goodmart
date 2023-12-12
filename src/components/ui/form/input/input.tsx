@@ -8,6 +8,7 @@ type InputProps = {
   classNames?: string;
   name: string;
   type?: string;
+  onChange?: (value: string) => void;
   value?: string;
   maxLength?: number;
   checkValidation?: boolean;
@@ -20,6 +21,7 @@ export default function Input({
   classNames,
   name,
   type = 'text',
+  onChange,
   value: defaultValue = '',
   maxLength = 0,
   checkValidation = false,
@@ -40,7 +42,9 @@ export default function Input({
   }
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setValue(event.currentTarget.value);
+    const { value } = event.currentTarget;
+    setValue(value);
+    onChange && onChange(value);
   };
 
   return (
